@@ -32,6 +32,10 @@ class PdfController extends Controller
             'default_font' => 'siyamrupali'
         ]);
 
+        $html = view('invoice')->render(); // Blade view
+        $mpdf->WriteHTML($html);
+        return response($mpdf->Output('invoice.pdf', 'D'));
+
         // Bangla content
         $banglaHtml = '
             <h1>asdfghjklqwertyuiopzxcvbnm</h1>

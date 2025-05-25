@@ -17,4 +17,4 @@ use App\Http\Controllers\PdfController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/bangla-pdf', [PdfController::class, 'generateBanglaPdf']);
+Route::get('/pdf', [PdfController::class, 'generateBanglaPdf']);
