@@ -49,7 +49,6 @@
 <body>
 <div class="invoice-container">
     <div class="header">
-        <img src="grameenphone-logo.png" alt="Grameenphone Logo" height="40">
         <h3>The Government of the People's Republic of Bangladesh</h3>
         <h4>National Board of Revenue</h4>
         <p><strong>Tax Invoice</strong><br> [See clauses (c) and (f) of Sub-Rule (1) of Rule 40]</p>
@@ -85,7 +84,7 @@
     </table>
 
     <div style="margin: 20px 0; text-align: center;">
-        <img src="gpfi-banner.png" alt="GPFi Banner" style="max-width: 100%;">
+
     </div>
 
     <table class="product-table">

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Mail\InvoiceMail;
+use Illuminate\Support\Facades\Mail;
 use Mpdf\Mpdf;
 use Mpdf\Config\ConfigVariables;
 use Mpdf\Config\FontVariables;
@@ -32,9 +33,15 @@ class PdfController extends Controller
             'default_font' => 'siyamrupali'
         ]);
 
-        $html = view('invoice')->render(); // Blade view
+        $html = view('pdf.invoice')->render(); // Blade view
         $mpdf->WriteHTML($html);
-        return response($mpdf->Output('invoice.pdf', 'D'));
+
+        $pdfContent = $mpdf->Output('', 'S'); // Output as string
+
+        // Send email with PDF attached
+        Mail::to('customer@example.com')->send(new InvoiceMail($pdfContent));
+
+        return response($mpdf->Output('invoice.pdf', 'I'));
 
         // Bangla content
         $banglaHtml = '
